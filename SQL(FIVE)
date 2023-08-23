@@ -1,0 +1,34 @@
+//Creating Database
+CREATE DATABASE five;
+
+//Creating admin table
+CREATE TABLE admin(
+    id INT(10) AUTO_INCREMENT UNIQUE,
+    admin_id VARCHAR(30) NOT NULL,
+    apwd VARCHAR(30) NOT NULL,
+    code INT(5) NOT NULL UNIQUE
+);
+INSERT INTO admin(admin_id,apwd,code) VALUES ('admin@five.com','admin',55555);
+
+//creating users table
+CREATE TABLE users(
+    id INT(100) AUTO_INCREMENT NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    username VARCHAR(100) UNIQUE NOT NULL,
+    dob DATE NOT NULL,
+    email VARCHAR(30) NOT NULL,
+    upwd VARCHAR(40) NOT NULL,
+    gender VARCHAR(10) NOT NULL,
+    bio TEXT,
+    sec_question VARCHAR(20) NOT NULL,
+    PRIMARY KEY(id)
+);
+
+//creating posts table
+CREATE TABLE content(
+    id INT(100) AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100),
+    caption TEXT NOT NULL,
+    img BLOB,
+    FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE
+);
