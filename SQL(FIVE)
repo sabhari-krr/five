@@ -21,6 +21,8 @@ CREATE TABLE users(
     gender VARCHAR(10) NOT NULL,
     bio TEXT,
     sec_question VARCHAR(20) NOT NULL,
+    profilepic BLOB NOT NULL,
+    createdat DATETIME DEFAULT CURRENT_TIME,
     PRIMARY KEY(id)
 );
 
@@ -30,5 +32,6 @@ CREATE TABLE content(
     username VARCHAR(100),
     caption TEXT NOT NULL,
     img BLOB,
+    postedat DATETIME DEFAULT CURRENT_TIME,
     FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE
 );
