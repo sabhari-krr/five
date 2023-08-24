@@ -27,40 +27,35 @@
                         </button>
                     </form>
                 </div>
-                <div class="col-auto">
-                    <button class="navbar-toggler profile-button rounded-circle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <div class="col-auto d-lg-none">
+                    <button class="navbar-toggler profile-button rounded-circle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" style="padding: 0 0px;">
                         <i class="bi bi-person-circle" style="font-size: 2rem;"></i> <!-- Profile Icon -->
                     </button>
                 </div>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
                         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-                            Offcanvas
-                        </h5>
+                            Profile </h5>
                         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body">
-                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Link</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownId">
-                                    <a class="dropdown-item" href="#">Action 1</a>
-                                    <a class="dropdown-item" href="#">Action 2</a>
+
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col text-center p-5">
+                                    <div class="rounded-circle overflow-hidden mx-auto shadow-lg mb-5" style="display: flex; justify-content: center;align-items: center;">
+                                        <img class="img-fluid" src="https://via.placeholder.com/200" alt="Circular Image" style="width: 100%; height: 100%; object-fit: cover" />
+                                    </div>
+                                    <h2 class="mt-3">NAME</h2>
+                                    <p>BIO</p>
+                                    <a name="" id="" class="btn btn-primary btn-outline-light border-0" href="#">Profile</a>
+                                    <a name="" id="" class="btn btn-primary btn-outline-light border-0 rounded-circle" href="#">
+                                        <i class="bi bi-plus"></i>
+                                    </a>
+
                                 </div>
-                            </li>
-                        </ul>
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                            <button class="btn btn-outline-success" type="submit">
-                                Search
-                            </button>
-                        </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
