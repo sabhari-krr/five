@@ -6,7 +6,7 @@ include "includes/head.php";
 
 $sql = "SELECT *
         FROM content
-        ORDER BY postedat;";
+        ORDER BY postedat DESC;";
 
 $results = mysqli_query($db, $sql);
 
@@ -30,13 +30,24 @@ if ($results === false) {
                     <div class="col-auto justify-content-center g-5">
                         <?php foreach ($articles as $article) : ?>
                             <div class="col-12 mb-1 p-2">
-                                <div class="card col shadow ">
-                                    <div class="col fs-5 pt-2 ps-3 fw-bold pb-2 bg-gradient bg-warning rounded-top">
-                                        <a href="article.php?id=<?= $article['id']; ?>" class="text-light text-decoration-none">
+                                <div class="card col shadow">
+                                    <div class="col fs-5 pt-2 pb-2 ps-3 fw-bold bg-gradient bg-light rounded-top">
+                                        <a href="article.php?id=<?= $article['id']; ?>" class="text-dark text-decoration-none">
                                             <?= htmlspecialchars($article['username']); ?>
                                         </a>
                                     </div>
-                                    <div class="col p-2 pb-2 fs-6">
+                                    <div class="col ps-3 font-italic text-secondary" style="font-size: 13px;">
+                                        <?php
+                                        $dateTime = new DateTime($article['postedat']); // Use $article['postedat'] here
+
+                                        // Format the date and time in the desired formats
+                                        $dateFormatted = $dateTime->format('d-m-Y');
+                                        $timeFormatted = $dateTime->format('H:i:s');
+                                        ?>
+
+                                        <em>Date:<?= $dateFormatted ?> Time:<?= $timeFormatted ?> </em>
+                                    </div>
+                                    <div class="col ps-3 pt-2 pb-2 fs-6">
                                         <?= htmlspecialchars($article['caption']); ?>
                                     </div>
                                     <div class="col">
@@ -48,6 +59,7 @@ if ($results === false) {
                             </div>
                         <?php endforeach; ?>
                     </div>
+
                 </div>
             </div>
 
