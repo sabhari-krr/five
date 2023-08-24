@@ -1,20 +1,20 @@
 <?php
 session_start();
-// include "includes/config.php"; //comfiguration files
+include "includes/config.php"; //comfiguration files
 include "includes/head.php";
 
 
+$sql = "SELECT *
+        FROM content
+        ORDER BY postedat;";
 
-// $sql = SELECT * FROM content WHERE id > 0 ORDER BY id;
-// $results = mysqli_query($conn, $sql);
+$results = mysqli_query($db, $sql);
 
-// if ($results === false) {
-//     echo mysqli_error($conn); //shows the error
-// }
-// else {
-//     $articles = mysqli_fetch_all($results, MYSQLI_ASSOC);
-// }
-
+if ($results === false) {
+    echo mysqli_error($db);
+} else {
+    $articles = mysqli_fetch_all($results, MYSQLI_ASSOC);
+}
 ?>
 <main class="">
     <div class="container-fluid">
@@ -25,32 +25,28 @@ include "includes/head.php";
                 <!-- feed -->
                 <div class="row bg-secondary justify-content-center">
                     <!-- Content for the first row -->
+
+
                     <div class="col-auto justify-content-center g-5">
-                        <div class="col-12 mb-1">
-                            <div class="card col">
-                                <div class="col ms-2 fs-5">NAMEewdw</div>
-                                <div class="col ms-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae voluptas temporibus modi aperiam voluptate. Quisquam minus nam maxime amet neque quidem sint incidunt expedita voluptate mollitia. Eveniet amet quibusdam rerum.</div>
-                                <div class="col">
-                                    <div class="justify-content-center">
-                                        <img class="img-fluid" src="https://via.placeholder.com/200" alt="" width="600" height="300" />
+                        <?php foreach ($articles as $article) : ?>
+                            <div class="col-12 mb-1">
+                                <div class="card col">
+                                    <div class="col ms-2 fs-5 fw-bold">
+                                        <a href="article.php?id=<?= $article['id']; ?>">
+                                            <?= htmlspecialchars($article['username']); ?>
+                                        </a>
+                                    </div>
+                                    <div class="col ms-2 fs-6">
+                                        <?= htmlspecialchars($article['caption']); ?>
+                                    </div>
+                                    <div class="col">
+                                        <div class="justify-content-center">
+                                            <img class="img-fluid" src="<?= htmlspecialchars($article['img']); ?>" alt="" width="600" height="300" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <!-- second-row -->
-                    <div class="col-auto justify-content-center g-5">
-                        <div class="col-12 mb-1">
-                            <div class="card col">
-                                <div class="col ms-2 fs-5">NAMEewdw</div>
-                                <div class="col ms-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae voluptas temporibus modi aperiam voluptate. Quisquam minus nam maxime amet neque quidem sint incidunt expedita voluptate mollitia. Eveniet amet quibusdam rerum.</div>
-                                <div class="col">
-                                    <div class="justify-content-center">
-                                        <img class="img-fluid" src="https://via.placeholder.com/200" alt="" width="600" height="300" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>
@@ -60,9 +56,9 @@ include "includes/head.php";
                     <div class="row justify-content-center">
                         <div class="col text-center p-3">
                             <div class="rounded-circle overflow-hidden mx-auto shadow-lg" style="
-                      display: flex;
-                      justify-content: center;
-                      align-items: center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     ">
                                 <img class="img-fluid" src="https://via.placeholder.com/200" alt="Circular Image" style="width: 100%; height: 100%; object-fit: cover" />
                             </div>
