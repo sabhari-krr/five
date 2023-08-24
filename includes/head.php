@@ -7,19 +7,25 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <!-- Bootstrap CSS v5.2.1 -->
+    <!-- bootstrap icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-
+    <!-- Bootstrap CSS v5.2.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,300&display=swap" rel="stylesheet">
+
+
 </head>
 
-<body style="padding-top: 58px;">
+<body style="padding-top: 58px;font-family: 'Lato', sans-serif;">
     <header class="row-auto">
         <!-- place navbar here -->
         <nav class="navbar navbar-dark bg-dark fixed-top justify-content-center">
             <div class="container-fluid justify-content-evenly">
                 <div class="col d-flex">
-                    <a class="navbar-brand col-auto" href="#">FIVE</a>
+                    <a class="navbar-brand col-auto" href="#" style="font-weight: 900;">FIVE</a>
                     <form class="d-flex col-auto d-sm-flex d-none">
                         <input class="form-control me-2 col" type="search" placeholder="Search" aria-label="Search" />
                         <button class="btn btn-outline-success col-auto" type="submit">
