@@ -28,13 +28,15 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="img/favicon.png" type="image/x-icon">
   <title>Admin login</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
   <style>
     body {
-      background-color: #8ec5fc;
-      background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+      background-image: url("img/background.jpg") !important;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
     }
 
     @media (max-width: 1210px) {
@@ -48,12 +50,8 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
       }
 
       .container {
-        background: rgba(255, 255, 255, 0.1);
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        backdrop-filter: blur(3.5px);
-        -webkit-backdrop-filter: blur(3.5px);
-        border-radius: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.18);
+        backdrop-filter: blur(3.5px) !important;
+      
       }
 
     }
@@ -63,17 +61,20 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
       flex-direction: column;
       justify-content: center;
     }
-
+    .container{
+      
+background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(3.5px);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
     .right {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background: rgba(255, 255, 255, 0.1);
-      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-      backdrop-filter: blur(3.5px);
-      -webkit-backdrop-filter: blur(3.5px);
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      
     }
   </style>
   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
@@ -85,9 +86,8 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
   <div class="container d-flex justify-content-center align-items-center vh-100  text-center">
     <div class="left w-50 gy-sm-3 gy-md-2 py-5 d-flex flex-column align-items-center">
       <div class="logo">
-
-        <img src="img/tplogo.png" alt="OUR LOGO" class="img-fluid mb-5" /
-          style="mix-blend-mode: multiply;border: none; height: 100px; width: auto;">
+        <img src="img/tplogo.png" alt="OUR LOGO" class="img-fluid mb-5" 
+          style="mix-blend-mode: multiply;border: none; height: 100px; width: auto;" />
       </div>
       <form action="adminlogin.php" method="POST">
 
@@ -110,7 +110,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     </div>
     <div class="right h-75 w-50 align-items-center justify-content-center">
       <img src="img/output-onlinegiftools.gif" alt="if" width="500" height="500">
-    </div>
+    </div>  
   </div>
 </body>
 
