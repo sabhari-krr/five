@@ -6,9 +6,9 @@ session_start();
 include "includes/config.php"; //comfiguration files
 // include "includes/newpost.php";
 
-//needs session here. and pass that username
+//pass that username in session
 $username = "narutouzumaki"; // Replace with the actual username(dynamic variable ah podanum)
-$selectQuery = "SELECT * FROM users WHERE username='$username'";
+$selectQuery = " SELECT * FROM users WHERE username='$username' ";
 $result = mysqli_query($db, $selectQuery);
 
 if ($result) {
