@@ -66,6 +66,7 @@ if ($results === false) {
                 </div>
             </div>
 
+            <!-- right coloumn on large screen -->
             <div class="col-4 col-lg-3 bg-light sticky-top d-none d-lg-block shadow " style="top: 58px; height: 95vh">
                 <div class="container mt-5 ">
                     <div class="row justify-content-center">

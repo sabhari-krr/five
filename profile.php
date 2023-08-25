@@ -1,5 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+
+include "includes/config.php";
+$_SESSION['username'] = 'narutouzumaki';
+if ($_SESSION['username']) {
+  $usercnfrm = $_SESSION['username'];
+  $sql = "SELECT * from users where username='$usercnfrm';";
+  $query = mysqli_query($db, $sql);
+  if ($query) {
+    $row = mysqli_fetch_assoc($query);
+    $img = $row['profilepic'];
+    $name = $row['name'];
+    $uname = $row['username'];
+    $email = $row['email'];
+    $bio = $row['bio'];
+  } else {
+    echo "<script>alert('error in username');</script>";
+  }
+} ?>
+
 
 <head>
   <meta charset="UTF-8" />
@@ -268,60 +288,42 @@
     <header></header>
     <div class="cols__container">
       <div class="left__col">
-        <?php
 
-        include "includes/config.php";
-        $_SESSION['username'] = 'narutouzumaki';
-        if ($_SESSION['username']) {
-          $usercnfrm = $_SESSION['username'];
-          $sql = "SELECT * from users where username='$usercnfrm';";
-          $query = mysqli_query($db, $sql);
-          if ($query) {
-            $row = mysqli_fetch_assoc($query);
-            $img = $row['profilepic'];
-            $name = $row['name'];
-            $uname = $row['username'];
-            $email = $row['email'];
-        ?>
-            <div class="img__container">
-              <img src="<?= $img ?>" alt="Zoro" /> <!--Change it to php to upload files  <?php //$img ?>-->
-              <span></span>
-            </div>
+        <div class="img__container">
+          <img src="<?= $img ?>" alt="image" />
+          <span></span>
+        </div>
 
 
-            <h2><?= $name ?></h2>
-            <p>@<?= $uname ?></p>
-            <p><?= $email ?></p>
-            <p></p>
+        <h2><?= $name ?></h2>
+        <p>@<?= $uname ?></p>
+        <p><?= $email ?></p>
+        <p></p>
 
-            <ul class="about">
-              <li><span>8,073</span>Followers</li>
-              <li><span>322</span>Following</li>
-              <li><span>4</span>Post</li>
-            </ul>
+        <ul class="about">
+          <li><span>8,073</span>Followers</li>
+          <li><span>322</span>Following</li>
+          <li><span>4</span>Post</li>
+        </ul>
 
-            <div class="content">
-              <p>
-                Lorem, ipsum.
+        <div class="content">
+          <p>
+            <?= $bio ?>
 
-              </p>
-              <br>
-              <br>
-              <form action="" mrthod="Post">
-                <button type="button" class="btn btn-primary">Edit</button>
-                <form>
-                  <ul>
-                    <li><i class="fab fa-twitter"></i></li>
-                    <i class="fab fa-pinterest"></i>
-                    <i class="fab fa-facebook"></i>
-                    <i class="fab fa-dribbble"></i>
-                  </ul>
-            </div>
+          </p>
+          <br>
+          <br>
+          <form action="" mrthod="Post">
+            <button type="button" class="btn btn-primary">Edit</button>
+            <form>
+              <ul>
+                <li><i class="fab fa-twitter"></i></li>
+                <i class="fab fa-pinterest"></i>
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-dribbble"></i>
+              </ul>
+        </div>
 
-        <?php } else {
-            echo "<script>alert('error in username');</script>";
-          }
-        } ?>
       </div>
       <div class="right__col">
         <nav>
