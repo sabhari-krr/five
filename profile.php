@@ -1,19 +1,17 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Responsive Profile Page</title>
     <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css" />
-   <style> 
+   
+     <style>
+        
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 
 
@@ -232,87 +230,95 @@ object-fit: cover;
     margin-top: 0;
   }
 }
-</style>
-  </head>
-  <body>
+    </style>
+</head>
+
+<body>
     <div class="header__wrapper">
-      <header></header>
-      <div class="cols__container">
-        <div class="left__col">
-          <div class="img__container">
-            <img src="OIP.jpg" alt="Zoro" />
-            <span></span>
-          </div>
+        <header></header>
+        <div class="cols__container">
+            <div class="left__col">
+                <?php
 
-          <
-           <?php
-           include("config.php");
-           $session_start();
-           if ($_SESSION['username']) {
-               $usercnfrm = $_SESSION['username'];
-           if($_SERVER["REQUEST_METHOD"]=='POST')
-           {
-             $query1="SELECT * from users where id='$usercnfrm'  " ;
-             $query2=mysqli_query($db,$query1);
-             if($query2)
-             {
-               $row=mysqli_fetch_assoc($query2);
-               echo $row['profilepic'];
-             }                                      
+                include "config.php";
+                
+$query = "SELECT * FROM users WHERE name='zoro' ";
+$query_run = mysqli_query($db, $query);
+ 
+$_SESSION['username'] = 'zoro123';
+if ($_SESSION['username']) {
+  $usercnfrm = 'zoro123';
+    $query1 = "SELECT * from users where username='$usercnfrm';";
+    $query2 = mysqli_query($db, $query1);
+    if ($query2) {
+      $row = mysqli_fetch_assoc($query2);
+      $img = $row['profilepic'];
+      $name = $row['name'];
+      $email = $row['email'];
+?>
+                <div class="img__container">
+                    <img src="OIP.jpg" alt="Zoro" /> <!--Change it to php to upload files  <?php //$img ?>--> 
+                    <span></span>
+                </div>
 
-           }
-       }
-                                              
-           ?>
-           
-          <h2><?php echo $_POST['name'];?></h2>
-          <p><?php echo $_POST['username'];?></p>
-          <p><?php echo $_POST['email'];?></p>
-          
-          <ul class="about">
-            <li><span>8,073</span>Followers</li>
-            <li><span>322</span>Following</li>
-            <li><span>4</span>Post</li>
-          </ul>
-         
-          <div class="content">
-            <p>
-          <?php echo $_POST['bio'];?>
-         
-            </p>
-            <br>
-            <br>
-            <form action="" mrthod="Post">
-            <button type="button" class="btn btn-primary">Edit</button>
-            <form>
-            <ul>
-              <li><i class="fab fa-twitter"></i></li>
-              <i class="fab fa-pinterest"></i>
-              <i class="fab fa-facebook"></i>
-              <i class="fab fa-dribbble"></i>
-            </ul>
-          </div>
+     
+
+
+
+                <h2><?= $name?></h2>
+                <p><?= $email?></p>
+                <p></p>
+
+                <ul class="about">
+                    <li><span>8,073</span>Followers</li>
+                    <li><span>322</span>Following</li>
+                    <li><span>4</span>Post</li>
+                </ul>
+
+                <div class="content">
+                    <p>
+                        Lorem, ipsum.
+
+                    </p>
+                    <br>
+                    <br>
+                    <form action="" mrthod="Post">
+                        <button type="button" class="btn btn-primary">Edit</button>
+                        <form>
+                            <ul>
+                                <li><i class="fab fa-twitter"></i></li>
+                                <i class="fab fa-pinterest"></i>
+                                <i class="fab fa-facebook"></i>
+                                <i class="fab fa-dribbble"></i>
+                            </ul>
+                </div>
+                
+                <?php }
+            else{
+                echo "<script>alert('error in username');</script>";
+            }} ?>
+            </div>
+            <div class="right__col">
+                <nav>
+                    <ul>
+                        <li><a href="">photos</a></li>
+                        <li><a href="">galleries</a></li>
+                        <li><a href="">groups</a></li>
+                        <li><a href="">about</a></li>
+                    </ul>
+                    <button>Follow</button>
+                </nav>
+
+                <div class="photos">
+                    <img src="zoro1.jpg" alt="Photo" />
+                    <img src="zoro2.jpg" alt="Photo" />
+                    <img src="zoro3.jpg" alt="Photo" />
+                    <img src="zoro4.jpg" alt="Photo" />
+
+                </div>
+            </div>
         </div>
-        <div class="right__col">
-          <nav>
-            <ul>
-              <li><a href="">photos</a></li>
-              <li><a href="">galleries</a></li>
-              <li><a href="">groups</a></li>
-              <li><a href="">about</a></li>
-            </ul>
-            <button>Follow</button>
-          </nav>
-
-          <div class="photos">
-            <img src="zoro1.jpg" alt="Photo" />
-            <img src="zoro2.jpg" alt="Photo" />
-            <img src="zoro3.jpg" alt="Photo" />
-            <img src="zoro4.jpg" alt="Photo"  />
-           
-          </div>
-        </div>
-      </div>
     </div>
-  </body>
+</body>
+
 </html>
