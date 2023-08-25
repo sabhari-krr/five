@@ -4,6 +4,7 @@
 
 session_start();
 include "includes/config.php"; //comfiguration files
+// include "includes/newpost.php";
 
 //needs session here. and pass that username
 $username = "narutouzumaki"; // Replace with the actual username(dynamic variable ah podanum)
@@ -20,7 +21,29 @@ if ($result) {
 }
 
 
+if (isset($_POST["content"])) {
+    $errors = array();
+    $filenamefetch = "SELECT MAX(id) FROM content";
+    $fetchFileName = mysqli_query($db, $filenamefetch);
+    $row = mysqli_fetch_assoc($fetchFileName);
+    $nextId = $row['MAX(id)'] + 1;
+    $s = $fetchFileName;
+    $file_name = $_FILES['img']['name'];
+    $file_tmp = $_FILES['img']['tmp_name'];
+    $ext = pathinfo($file_name, PATHINFO_EXTENSION);
+    $file_name = $nextId . "." . $ext; //filename is the current id
+    $filePath = "images/posts/" . $file_name;
+    $caption = $_POST['caption'];
+    $insertquery = "INSERT INTO content(caption,img) VALUES ('$caption','$filePath')";
+    if (empty($errors) == true) {
+        move_uploaded_file($file_tmp, "images/posts/" . $file_name);
+        mysqli_query($db, $insertquery);
+    } 
+}
+
 ?>
+
+
 
 <head>
     <title>Title</title>
@@ -36,7 +59,11 @@ if ($result) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,300&display=swap" rel="stylesheet">
-
+<style>
+    .modal-backdrop{
+        display:none !important
+    }
+</style>
 
 </head>
 
@@ -56,8 +83,8 @@ if ($result) {
                 </div>
                 <div class="col-auto d-lg-none">
                     <button class="navbar-toggler profile-button rounded-circle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" style="padding: 0 0px;">
-                    <img class="img-fluid  rounded-circle" src="<?= $imagePath; ?>" alt="Circular Image" width="40" />
-                                    <!-- <i class="bi bi-person-circle" style="font-size: 2rem;"></i> Profile Icon -->
+                        <img class="img-fluid  rounded-circle" src="<?= $imagePath; ?>" alt="Circular Image" width="40" />
+                        <!-- <i class="bi bi-person-circle" style="font-size: 2rem;"></i> Profile Icon -->
                     </button>
                 </div>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
@@ -78,9 +105,41 @@ if ($result) {
                                     <h6 class="text-secondary mb-3">@<?= $username; ?></h6>
                                     <p><?= $bio; ?></p>
                                     <a name="" id="" class="btn btn-primary btn-outline-light border-0" href="#">Profile</a>
-                                    <a name="" id="" class="btn btn-primary btn-outline-light border-0 rounded-circle" href="#">
-                                        <i class="bi bi-plus"></i>
-                                    </a>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                        Click to post
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" tabindex="-1">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="staticBackdropLabel">New Post</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="#" method="POST" enctype="multipart/form-data" name="content">
+                                                        <div class="mb-3">
+                                                            <label for="caption" class="form-label">Post Caption</label>
+                                                            <input type="text" name="caption" class="form-control" placeholder="Write your caption here......">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="image" class="form-label">
+                                                                Upload Picture
+                                                            </label>
+                                                            <input type="file" name="img" accept="image/*" required class="form-control">
+                                                        </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" name="content" class="btn btn-primary">Post</button>
+
+                                                    </form>
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 </div>
                             </div>
