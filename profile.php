@@ -232,7 +232,7 @@ if ($_SESSION['username']) {
     opacity: 0.8;
   }
 
-  .header__wrapper .cols__container .right__col .photos  {
+  .header__wrapper .cols__container .right__col .photos {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
     gap: 20px;
@@ -246,6 +246,37 @@ if ($_SESSION['username']) {
     display: block;
     height: 100%;
     object-fit: cover;
+  }
+
+  .header__wrapper .cols__container .right__col .photos .image-container {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header__wrapper .cols__container .right__col .photos .image-container img {
+    max-width: 100%;
+    display: block;
+    /* height: auto; */
+    object-fit: cover;
+  }
+
+  .header__wrapper .cols__container .right__col .photos .image-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 5px;
+    font-size: 14px;
+    opacity: 0;
+    /* Initially hidden */
+    transition: opacity 0.3s ease;
+  }
+
+  .header__wrapper .cols__container .right__col .photos .image-container:hover .image-caption {
+    opacity: 1;
+    /* Show caption on hover */
   }
 
   @media (min-width: 868px) {
@@ -268,20 +299,20 @@ if ($_SESSION['username']) {
       gap: 30px;
     }
 
-  @media (min-width: 1017px) {
-    .header__wrapper .cols__container .left__col {
-      margin: 0;
-      margin-right: auto;
-    }
+    @media (min-width: 1017px) {
+      .header__wrapper .cols__container .left__col {
+        margin: 0;
+        margin-right: auto;
+      }
 
-    .header__wrapper .cols__container .right__col nav {
-      flex-direction: row;
-    }
+      .header__wrapper .cols__container .right__col nav {
+        flex-direction: row;
+      }
 
-    .header__wrapper .cols__container .right__col nav button {
-      margin-top: 0;
+      .header__wrapper .cols__container .right__col nav button {
+        margin-top: 0;
+      }
     }
-  }
 </style>
 <div class="header__wrapper">
   <header></header>
@@ -336,10 +367,13 @@ if ($_SESSION['username']) {
       </nav>
 
       <div class="photos">
-        <?php foreach ($articles as $article) : ?>
-          <img class="rounded" src="<?= htmlspecialchars($article['img']); ?>" alt="Photo" />
-        <?php endforeach; ?>
+    <?php foreach ($articles as $article) : ?>
+      <div class="image-container">
+        <img class="rounded" src="<?= htmlspecialchars($article['img']); ?>" alt="Photo" />
+        <div class="image-caption"><?= htmlspecialchars($article['caption']); ?></div>
       </div>
+    <?php endforeach; ?>
+  </div>
     </div>
   </div>
 </div>
