@@ -76,7 +76,7 @@ if ($results === false) {
                             <h2 class="mt-3"><?= $name; ?></h2>
                             <h6 class="text-secondary mb-3">@<?= $username; ?></h6>
                             <p><?= $bio; ?></p>
-                            <a name="" id="" class="btn btn-primary btn-outline-light border-0" href="#">Profile</a>
+                            <a name="" id="" class="btn btn-primary btn-outline-light border-0" href="profile.php">Profile</a>
                             <button type="button" class="btn btn-primary btn-outline-light border-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 +
                             </button>

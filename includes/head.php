@@ -58,7 +58,7 @@ if (isset($_POST["content"])) {
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
     <style>
         .modal-backdrop {
             display: none !important
@@ -67,7 +67,7 @@ if (isset($_POST["content"])) {
 
 </head>
 
-<body style="padding-top: 58px;font-family: 'Lato', sans-serif;">
+<body style="padding-top: 58px;font-family: 'Nunito', sans-serif;">
     <header class="row-auto">
         <!-- place navbar here -->
         <nav class="navbar navbar-dark bg-dark fixed-top justify-content-center">
@@ -105,7 +105,7 @@ if (isset($_POST["content"])) {
                                     <h2 class="mt-3"><?= $name; ?></h2>
                                     <h6 class="text-secondary mb-3">@<?= $username; ?></h6>
                                     <p><?= $bio; ?></p>
-                                    <a name="" id="" class="btn btn-primary btn-outline-light border-0" href="#">Profile</a>
+                                    <a name="" id="" class="btn btn-primary btn-outline-light border-0" href="profile.php">Profile</a>
                                     <button type="button" class="btn btn-primary btn-outline-light border-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
                                         +
                                     </button>
