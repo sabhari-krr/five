@@ -1,9 +1,11 @@
+//Home page
+
 <?php
 session_start();
 include "includes/config.php"; //comfiguration files
 include "includes/head.php";
 
-
+//selecting all the posts according to newwest 
 $sql = "SELECT *
         FROM content
         ORDER BY postedat DESC;";
@@ -15,6 +17,22 @@ if ($results === false) {
 } else {
     $articles = mysqli_fetch_all($results, MYSQLI_ASSOC);
 }
+
+
+//needs session here. and pass that username
+$username = "narutouzumaki"; // Replace with the actual username(dynamic variable ah podanum)
+$selectQuery = "SELECT * FROM users WHERE username='$username'";
+$result = mysqli_query($db, $selectQuery);
+
+if ($result) {
+    $row = mysqli_fetch_assoc($result);
+    $imagePath = $row['profilepic'];
+    $bio = $row[''];
+} else {
+    echo "USER NAME CHECK PANNU DA";
+}
+
+
 ?>
 <main class="">
     <div class="container-fluid">
@@ -67,15 +85,11 @@ if ($results === false) {
                 <div class="container mt-5 ">
                     <div class="row justify-content-center">
                         <div class="col text-center p-5">
-                            <div class="rounded-circle overflow-hidden mx-auto shadow-lg" style="
-                    display: flex;
-                    justify-content: center;
-                      align-items: center;
-                    ">
-                                <img class="img-fluid" src="https://via.placeholder.com/200" alt="Circular Image" style="width: 100%; height: 100%; object-fit: cover" />
+                            <div class="rounded-circle overflow-hidden mx-auto shadow-lg" style=" display: flex;justify-content: center;align-items: center;">
+                                <img class="img-fluid" src="<?= $username; ?>" alt="Circular Image" style="width: 100%; height: 100%; object-fit: cover" />
                             </div>
-                            <h2 class="mt-3">NAME</h2>
-                            <p>BIO</p>
+                            <h2 class="mt-3"><?= $imagePath; ?></h2>
+                            <p><?= $bio; ?></p>
                             <a name="" id="" class="btn btn-primary btn-outline-light border-0" href="#">Profile</a>
                             <a name="" id="" class="btn btn-primary btn-outline-light border-0 rounded-circle" href="#">
                                 <i class="bi bi-plus"></i>
