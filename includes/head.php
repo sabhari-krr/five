@@ -63,6 +63,26 @@ if (isset($_POST["content"])) {
         .modal-backdrop {
             display: none !important
         }
+
+        /* width */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #666;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #aaa;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #222;
+        }
     </style>
 
 </head>
@@ -73,6 +93,7 @@ if (isset($_POST["content"])) {
         <nav class="navbar navbar-dark bg-dark fixed-top justify-content-center">
             <div class="container-fluid justify-content-evenly">
                 <div class="col d-flex">
+                    <img class="img-fluid" src="img/favicon.png" alt="" width=40>
                     <a class="navbar-brand col-auto" href="#" style="font-weight: 900;">FIVE</a>
                     <form class="d-flex col-auto d-sm-flex d-none">
                         <input class="form-control me-2 col" type="search" placeholder="Search" aria-label="Search" />
@@ -106,7 +127,7 @@ if (isset($_POST["content"])) {
                                     <p><?= $bio; ?></p>
                                     <a name="" id="" class="btn btn-primary btn-outline-light border-0" href="#">Profile</a>
                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                        Click to post
+                                        +
                                     </button>
 
                                     <!-- Modal -->

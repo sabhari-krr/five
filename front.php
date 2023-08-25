@@ -71,48 +71,48 @@ if ($results === false) {
                 <div class="container mt-5 ">
                     <div class="row justify-content-center">
                         <div class="col text-center p-5">
-                        <div class="rounded-circle overflow-hidden mx-auto shadow-lg mb-5" style="display: flex; justify-content: center;align-items: center;">
-                                        <img class="img-fluid" src="<?= $imagePath; ?>" alt="Circular Image" style="width: 100%; height: 100%; object-fit: cover" />
-                                    </div>
-                                    <h2 class="mt-3"><?= $name; ?></h2>
-                                    <h6 class="text-secondary mb-3">@<?= $username; ?></h6>
-                                    <p><?= $bio; ?></p>
-                                    <a name="" id="" class="btn btn-primary btn-outline-light border-0" href="#">Profile</a>
-                                    <button type="button" class="btn btn-primary rounded-circle" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                        +
-                                    </button>
+                            <div class="rounded-circle overflow-hidden mx-auto shadow-lg mb-5" style="display: flex; justify-content: center;align-items: center;">
+                                <img class="img-fluid" src="<?= $imagePath; ?>" alt="Circular Image" style="width: 100%; height: 100%; object-fit: cover" />
+                            </div>
+                            <h2 class="mt-3"><?= $name; ?></h2>
+                            <h6 class="text-secondary mb-3">@<?= $username; ?></h6>
+                            <p><?= $bio; ?></p>
+                            <a name="" id="" class="btn btn-primary btn-outline-light border-0" href="#">Profile</a>
+                            <button type="button" class="btn btn-primary rounded-circle" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                +
+                            </button>
 
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" tabindex="-1">
-                                        <div class="modal-dialog modal-dialog-centered">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="staticBackdropLabel">New Post</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" tabindex="-1">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="staticBackdropLabel">New Post</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="#" method="POST" enctype="multipart/form-data" name="content">
+                                                <div class="mb-3">
+                                                    <label for="caption" class="form-label">Post Caption</label>
+                                                    <input type="text" name="caption" class="form-control" placeholder="Write your caption here......">
                                                 </div>
-                                                <div class="modal-body">
-                                                    <form action="#" method="POST" enctype="multipart/form-data" name="content">
-                                                        <div class="mb-3">
-                                                            <label for="caption" class="form-label">Post Caption</label>
-                                                            <input type="text" name="caption" class="form-control" placeholder="Write your caption here......">
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="image" class="form-label">
-                                                                Upload Picture
-                                                            </label>
-                                                            <input type="file" name="img" accept="image/*" required class="form-control">
-                                                        </div>
+                                                <div class="mb-3">
+                                                    <label for="image" class="form-label">
+                                                        Upload Picture
+                                                    </label>
+                                                    <input type="file" name="img" accept="image/*" required class="form-control">
                                                 </div>
-                                                <div class="modal-footer">
-                                                    <button type="submit" name="content" class="btn btn-primary">Post</button>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" name="content" class="btn btn-primary">Post</button>
 
-                                                    </form>
-                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            </form>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
 
                         </div>
                     </div>
