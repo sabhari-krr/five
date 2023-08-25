@@ -13,7 +13,7 @@
     />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" />
-    
+   <style> 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 
 
@@ -232,6 +232,7 @@ object-fit: cover;
     margin-top: 0;
   }
 }
+</style>
   </head>
   <body>
     <div class="header__wrapper">
@@ -243,9 +244,27 @@ object-fit: cover;
             <span></span>
           </div>
 
-          <?php
-           include_once "config.php";  
+          <
+           <?php
+           include("config.php");
+           $session_start();
+           if ($_SESSION['username']) {
+               $usercnfrm = $_SESSION['username'];
+           if($_SERVER["REQUEST_METHOD"]=='POST')
+           {
+             $query1="SELECT * from users where id='$usercnfrm'  " ;
+             $query2=mysqli_query($db,$query1);
+             if($query2)
+             {
+               $row=mysqli_fetch_assoc($query2);
+               echo $row['profilepic'];
+             }                                      
+
+           }
+       }
+                                              
            ?>
+           
           <h2><?php echo $_POST['name'];?></h2>
           <p><?php echo $_POST['username'];?></p>
           <p><?php echo $_POST['email'];?></p>
