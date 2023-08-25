@@ -71,15 +71,16 @@ if ($results === false) {
                 <div class="container mt-5 ">
                     <div class="row justify-content-center">
                         <div class="col text-center p-5">
-                            <div class="rounded-circle overflow-hidden mx-auto shadow-lg" style=" display: flex;justify-content: center;align-items: center;">
-                                <img class="img-fluid" src="<?= $imagePath; ?>" alt="Circular Image" style="width: 100%; height: 100%; object-fit: cover" />
-                            </div>
-                            <h2 class="mt-3"><?= $username; ?></h2>
-                            <p><?= $bio; ?></p>
-                            <a name="" id="" class="btn btn-primary btn-outline-light border-0" href="#">Profile</a>
-                            <a name="" id="" class="btn btn-primary btn-outline-light border-0 rounded-circle" href="#">
-                                <i class="bi bi-plus"></i>
-                            </a>
+                        <div class="rounded-circle overflow-hidden mx-auto shadow-lg mb-5" style="display: flex; justify-content: center;align-items: center;">
+                                        <img class="img-fluid" src="<?= $imagePath; ?>" alt="Circular Image" style="width: 100%; height: 100%; object-fit: cover" />
+                                    </div>
+                                    <h2 class="mt-3"><?= $name; ?></h2>
+                                    <h6 class="text-secondary mb-3">@<?= $username; ?></h6>
+                                    <p><?= $bio; ?></p>
+                                    <a name="" id="" class="btn btn-primary btn-outline-light border-0" href="#">Profile</a>
+                                    <a name="" id="" class="btn btn-primary btn-outline-light border-0 rounded-circle" href="#">
+                                        <i class="bi bi-plus"></i>
+                                    </a>
 
                         </div>
                     </div>

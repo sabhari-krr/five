@@ -14,6 +14,7 @@ if ($result) {
     $row = mysqli_fetch_assoc($result);
     $imagePath = $row['profilepic'];
     $bio = $row['bio'];
+    $name = $row['name'];
 } else {
     echo "USER NAME CHECK PANNU DA";
 }
@@ -55,7 +56,8 @@ if ($result) {
                 </div>
                 <div class="col-auto d-lg-none">
                     <button class="navbar-toggler profile-button rounded-circle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" style="padding: 0 0px;">
-                        <i class="bi bi-person-circle" style="font-size: 2rem;"></i> <!-- Profile Icon -->
+                    <img class="img-fluid  rounded-circle" src="<?= $imagePath; ?>" alt="Circular Image" width="40" />
+                                    <!-- <i class="bi bi-person-circle" style="font-size: 2rem;"></i> Profile Icon -->
                     </button>
                 </div>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
@@ -72,7 +74,8 @@ if ($result) {
                                     <div class="rounded-circle overflow-hidden mx-auto shadow-lg mb-5" style="display: flex; justify-content: center;align-items: center;">
                                         <img class="img-fluid" src="<?= $imagePath; ?>" alt="Circular Image" style="width: 100%; height: 100%; object-fit: cover" />
                                     </div>
-                                    <h2 class="mt-3"><?= $username; ?></h2>
+                                    <h2 class="mt-3"><?= $name; ?></h2>
+                                    <h6 class="text-secondary mb-3">@<?= $username; ?></h6>
                                     <p><?= $bio; ?></p>
                                     <a name="" id="" class="btn btn-primary btn-outline-light border-0" href="#">Profile</a>
                                     <a name="" id="" class="btn btn-primary btn-outline-light border-0 rounded-circle" href="#">
