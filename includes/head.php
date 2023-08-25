@@ -2,12 +2,15 @@
 <html lang="en">
 <?php
 
-session_start();
-include "includes/config.php"; //comfiguration files
+session_start(); //comfiguration files
 // include "includes/newpost.php";
 
+include_once "includes/config.php";
 //pass that username in session
-$username = "narutouzumaki"; // Replace with the actual username(dynamic variable ah podanum)
+$_SESSION['username'] = 'narutouzumaki';
+if ($_SESSION['username']) {
+    $username = $_SESSION['username']; // Replace with the actual username(dynamic variable ah podanum)
+}
 $selectQuery = " SELECT * FROM users WHERE username='$username' ";
 $result = mysqli_query($db, $selectQuery);
 
@@ -34,7 +37,7 @@ if (isset($_POST["content"])) {
     $file_name = $nextId . "." . $ext; //filename is the current id
     $filePath = "images/posts/" . $file_name;
     $caption = $_POST['caption'];
-    $insertquery = "INSERT INTO content(caption,img) VALUES ('$caption','$filePath')";
+    $insertquery = "INSERT INTO content (username, caption, img, postedat) VALUES ('$username', '$caption', '$filePath', NOW())";
     if (empty($errors) == true) {
         move_uploaded_file($file_tmp, "images/posts/" . $file_name);
         mysqli_query($db, $insertquery);
@@ -73,8 +76,12 @@ if (isset($_POST["content"])) {
         <nav class="navbar navbar-dark bg-dark fixed-top justify-content-center">
             <div class="container-fluid justify-content-evenly">
                 <div class="col d-flex">
-                    <img class="img-fluid" src="img/favicon.png" alt="" width=40>
-                    <a class="navbar-brand col-auto" href="#" style="font-weight: 900;">FIVE</a>
+
+                    <a href="front.php">
+                        <img class="img-fluid" src="img/favicon.png" alt="" width="40">
+                    </a>
+
+                    <a class="navbar-brand col-auto d-none d-sm-block" href="front.php" style="font-weight: 900;">FIVE</a>
                     <form class="d-flex col-auto d-sm-flex d-none">
                         <input class="form-control me-2 col" type="search" placeholder="Search" aria-label="Search" />
                         <button class="btn btn-outline-success col-auto" type="submit">

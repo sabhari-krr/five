@@ -2,7 +2,7 @@
 <html lang="en">
 <?php
 
-include "includes/config.php";
+include_once "includes/config.php";
 $_SESSION['username'] = 'narutouzumaki';
 if ($_SESSION['username']) {
   $usercnfrm = $_SESSION['username'];
@@ -18,20 +18,28 @@ if ($_SESSION['username']) {
   } else {
     echo "<script>alert('error in username');</script>";
   }
-} ?>
 
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Responsive Profile Page</title>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+//selecting all the posts according to newwest 
+
+  $sql2 = "SELECT *
+        FROM content WHERE username='$usercnfrm'
+        ORDER BY postedat DESC;";
+
+  $results = mysqli_query($db, $sql2);
+
+  if ($results === false) {
+    echo mysqli_error($db);
+  } else {
+    $articles = mysqli_fetch_all($results, MYSQLI_ASSOC);
+  }
+}
+?>
+
+<?= include "includes/head.php"; ?>
 
   <style>
-    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 
 
     /* General Scrollbar Styling */
@@ -281,9 +289,6 @@ if ($_SESSION['username']) {
       }
     }
   </style>
-</head>
-
-<body>
   <div class="header__wrapper">
     <header></header>
     <div class="cols__container">
@@ -337,11 +342,9 @@ if ($_SESSION['username']) {
         </nav>
 
         <div class="photos">
-          <img src="zoro1.jpg" alt="Photo" />
-          <img src="zoro2.jpg" alt="Photo" />
-          <img src="zoro3.jpg" alt="Photo" />
-          <img src="zoro4.jpg" alt="Photo" />
-
+        <?php foreach ($articles as $article) : ?>
+          <img class="rounded" src="<?= htmlspecialchars($article['img']); ?>" alt="Photo" />
+        <?php endforeach; ?>
         </div>
       </div>
     </div>
