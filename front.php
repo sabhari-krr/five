@@ -18,6 +18,25 @@ if ($results === false) {
 }
 
 
+// if (isset($_POST["content"])) {
+//     $errors = array();
+//     $filenamefetch = "SELECT MAX(id) FROM content";
+//     $fetchFileName = mysqli_query($db, $filenamefetch);
+//     $row = mysqli_fetch_assoc($fetchFileName);
+//     $nextId = $row['MAX(id)'] + 1;
+//     $s = $fetchFileName;
+//     $file_name = $_FILES['img']['name'];
+//     $file_tmp = $_FILES['img']['tmp_name'];
+//     $ext = pathinfo($file_name, PATHINFO_EXTENSION);
+//     $file_name = $nextId . "." . $ext; //filename is the current id
+//     $filePath = "images/posts/" . $file_name;
+//     $caption = $_POST['caption'];
+//     $insertquery = "INSERT INTO content(caption,img) VALUES ('$caption','$filePath')";
+//     if (empty($errors) == true) {
+//         move_uploaded_file($file_tmp, "images/posts/" . $file_name);
+//         mysqli_query($db, $insertquery);
+//     }
+// }
 
 ?>
 <main class="">
@@ -78,12 +97,11 @@ if ($results === false) {
                             <h6 class="text-secondary mb-3">@<?= $username; ?></h6>
                             <p><?= $bio; ?></p>
                             <a name="" id="" class="btn btn-primary btn-outline-light border-0" href="#">Profile</a>
-                            <button type="button" class="btn btn-primary rounded-circle" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            <button type="button" class="btn btn-primary btn-outline-light border-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 +
                             </button>
-
                             <!-- Modal -->
-                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" tabindex="-1">
+                            <div class="modal fade modal-static" id="staticBackdrop" data-bs-backdrop="static" tabindex="-1">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -98,7 +116,7 @@ if ($results === false) {
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="image" class="form-label">
-                                                        Upload Picture
+                                                    Post Picture
                                                     </label>
                                                     <input type="file" name="img" accept="image/*" required class="form-control">
                                                 </div>

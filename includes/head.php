@@ -63,26 +63,6 @@ if (isset($_POST["content"])) {
         .modal-backdrop {
             display: none !important
         }
-
-        /* width */
-        ::-webkit-scrollbar {
-            width: 12px;
-        }
-
-        /* Track */
-        ::-webkit-scrollbar-track {
-            background: #666;
-        }
-
-        /* Handle */
-        ::-webkit-scrollbar-thumb {
-            background: #aaa;
-        }
-
-        /* Handle on hover */
-        ::-webkit-scrollbar-thumb:hover {
-            background: #222;
-        }
     </style>
 
 </head>
@@ -126,12 +106,12 @@ if (isset($_POST["content"])) {
                                     <h6 class="text-secondary mb-3">@<?= $username; ?></h6>
                                     <p><?= $bio; ?></p>
                                     <a name="" id="" class="btn btn-primary btn-outline-light border-0" href="#">Profile</a>
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                    <button type="button" class="btn btn-primary btn-outline-light border-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
                                         +
                                     </button>
 
                                     <!-- Modal -->
-                                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" tabindex="-1">
+                                    <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" tabindex="-1">
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -146,7 +126,7 @@ if (isset($_POST["content"])) {
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="image" class="form-label">
-                                                                +
+                                                                Post Picture
                                                             </label>
                                                             <input type="file" name="img" accept="image/*" required class="form-control">
                                                         </div>
