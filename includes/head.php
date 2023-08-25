@@ -38,7 +38,7 @@ if (isset($_POST["content"])) {
     if (empty($errors) == true) {
         move_uploaded_file($file_tmp, "images/posts/" . $file_name);
         mysqli_query($db, $insertquery);
-    } 
+    }
 }
 
 ?>
@@ -59,11 +59,11 @@ if (isset($_POST["content"])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,300&display=swap" rel="stylesheet">
-<style>
-    .modal-backdrop{
-        display:none !important
-    }
-</style>
+    <style>
+        .modal-backdrop {
+            display: none !important
+        }
+    </style>
 
 </head>
 
@@ -125,7 +125,7 @@ if (isset($_POST["content"])) {
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="image" class="form-label">
-                                                                Upload Picture
+                                                                +
                                                             </label>
                                                             <input type="file" name="img" accept="image/*" required class="form-control">
                                                         </div>

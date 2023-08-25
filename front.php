@@ -78,9 +78,41 @@ if ($results === false) {
                                     <h6 class="text-secondary mb-3">@<?= $username; ?></h6>
                                     <p><?= $bio; ?></p>
                                     <a name="" id="" class="btn btn-primary btn-outline-light border-0" href="#">Profile</a>
-                                    <a name="" id="" class="btn btn-primary btn-outline-light border-0 rounded-circle" href="#">
-                                        <i class="bi bi-plus"></i>
-                                    </a>
+                                    <button type="button" class="btn btn-primary rounded-circle" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                        +
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" tabindex="-1">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="staticBackdropLabel">New Post</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="#" method="POST" enctype="multipart/form-data" name="content">
+                                                        <div class="mb-3">
+                                                            <label for="caption" class="form-label">Post Caption</label>
+                                                            <input type="text" name="caption" class="form-control" placeholder="Write your caption here......">
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label for="image" class="form-label">
+                                                                Upload Picture
+                                                            </label>
+                                                            <input type="file" name="img" accept="image/*" required class="form-control">
+                                                        </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" name="content" class="btn btn-primary">Post</button>
+
+                                                    </form>
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
                         </div>
                     </div>
