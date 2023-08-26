@@ -281,8 +281,8 @@ if ($_SESSION['username']) {
     }
 
     .header__wrapper .cols__container .right__col .photos .image-container {
-  border: solid 5px beige;
-  border-radius: 3%;
+  
+
   width: 190px;
   height: 190px;
   position: relative;
@@ -293,6 +293,7 @@ if ($_SESSION['username']) {
   height: 100%;
   display: block;
   object-fit: cover;
+  border-radius: 3%;
 }
 
     .header__wrapper .cols__container .right__col .photos .image-caption {
@@ -453,7 +454,7 @@ if ($_SESSION['username']) {
       </div>
       <div class="right__col">
         <nav>
-          <ul>
+          <ul class="flex-row">
             <li><a href="">photos</a></li>
             <li><a href="">galleries</a></li>
             <li><a href="">groups</a></li>
