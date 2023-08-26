@@ -156,7 +156,7 @@ if ($_SESSION['username']) {
       background: #2afa6a;
       width: 16px;
       height: 16px;
-      border-radius: 50%;
+      /* border-radius: 50%; */
       bottom: 3px;
       right: 11px;
       border: 2px solid #fff;
@@ -266,21 +266,27 @@ if ($_SESSION['username']) {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
       gap: 20px;
-      height: 365px;
+      max-height: 50vh;
       overflow: auto;
-      padding: 0 0 30px;
+
     }
 
     .header__wrapper .cols__container .right__col .photos img {
       max-width: 100%;
       display: block;
-      height: 100%;
+      /* height: 100%; */
       object-fit: cover;
+      max-height: 100%;
     }
 
     .header__wrapper .cols__container .right__col .photos .image-container {
+      width: 190px;
+      /* Or whatever fixed width you prefer */
+      height: 190px;
+      /*overflow: auto;*/
+      /* Enables scrolling if content exceeds the container size */
       position: relative;
-      overflow: hidden;
+      /* For positioning the caption */
     }
 
     .header__wrapper .cols__container .right__col .photos .image-container img {
@@ -291,7 +297,7 @@ if ($_SESSION['username']) {
     }
 
     .header__wrapper .cols__container .right__col .photos .image-caption {
-      position: absolute;
+      position: static;
       bottom: 0;
       left: 0;
       width: 100%;
@@ -305,7 +311,7 @@ if ($_SESSION['username']) {
     }
 
     .header__wrapper .cols__container .right__col .photos .image-container:hover .image-caption {
-      opacity: 0.5;
+      opacity: 1;
       /* Show caption on hover */
     }
 
@@ -460,7 +466,7 @@ if ($_SESSION['username']) {
         <div class="photos">
           <?php foreach ($articles as $article) : ?>
             <div class="image-container">
-              <img class="rounded" src="<?= htmlspecialchars($article['img']); ?>" alt="Photo" />
+              <img class="" src="<?= htmlspecialchars($article['img']); ?>" alt="Photo" />
               <div class="image-caption"><?= htmlspecialchars($article['caption']); ?></div>
             </div>
           <?php endforeach; ?>
