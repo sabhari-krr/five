@@ -52,10 +52,11 @@ if ($_SESSION['username']) {
     $file_name = $nextId . "." . $ext; //filename is the current id
     $filePath = "images/posts/" . $file_name;
     $caption = $_POST['caption'];
-    $insertquery = "INSERT INTO content (username, caption, img, postedat) VALUES ('$username', '$caption', '$filePath', NOW())";
+    $insertquery = "INSERT INTO content (username, caption, img) VALUES ('$usercnfrm', '$caption', '$filePath')";
     if (empty($errors) == true) {
       move_uploaded_file($file_tmp, "images/posts/" . $file_name);
       mysqli_query($db, $insertquery);
+      header("Location: profile.php");
     }
   }
 }
@@ -407,8 +408,7 @@ if ($_SESSION['username']) {
           </p>
           <br>
           <br>
-          <form action="">
-            <button type="button" class="btn btn-primary">Edit</button>
+            <a href="https://www.github.com" class="btn btn-primary">Edit</a>
 
             <button type="button" class="btn btn-primary btn-outline-light border-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
               +
@@ -443,7 +443,6 @@ if ($_SESSION['username']) {
                 </div>
               </div>
             </div>
-          </form>
           <ul>
             <li><i class="fab fa-twitter"></i></li>
             <i class="fab fa-pinterest"></i>
