@@ -11,11 +11,11 @@ session_start();
          {
             $arr=mysqli_fetch_assoc($get1);
             $_SESSION['log']=$arr['username']; 
-         echo "<script>alert('Login Successful');window.location.href='test1.php';</script>";
+         echo "<script>alert('Login Successful');window.location.href='userlogin.php';</script>";//ALBIN HOMEPAGE MATHIKO
 	}
 	  else
 	  {
-         echo "<script>alert('Your Login Name or Password is invalid');window.location.href='index.php';</script>";
+         echo "<script>alert('Your Login Name or Password is invalid');window.location.href='userlogin.php';</script>";
 		 exit();
       }
 }
@@ -124,7 +124,7 @@ form{
          <!--------------------------- right Box ----------------------------->
 
          <div class="col">
-            <form action="test2.php" class="mt-0" method="POST" name="submit">
+            <form action="userlogin.php" class="mt-0" method="POST" name="submit">
             <div class="card">
                 <svg class="mx-auto my-1" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -153,7 +153,7 @@ form{
                     </div>
            
                     <div class="d-grid gap-2 col-6 mx-auto">
-                        <a href="signup.html" class="btn btn-success btn-lg" tabindex="-1" role="button" aria-disabled="true">Create account</a>
+                        <a href="signup.php" class="btn btn-success btn-lg" tabindex="-1" role="button" aria-disabled="true">Create account</a>
                     </div>
                 </div>    
             </div>
