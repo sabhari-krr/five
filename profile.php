@@ -156,7 +156,7 @@ if ($_SESSION['username']) {
       background: #2afa6a;
       width: 16px;
       height: 16px;
-      /* border-radius: 50%; */
+      border-radius: 50%;
       bottom: 3px;
       right: 11px;
       border: 2px solid #fff;
@@ -266,7 +266,7 @@ if ($_SESSION['username']) {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
       gap: 20px;
-      max-height: 50vh;
+      max-height: 60vh;
       overflow: auto;
 
     }
@@ -280,21 +280,19 @@ if ($_SESSION['username']) {
     }
 
     .header__wrapper .cols__container .right__col .photos .image-container {
-      width: 190px;
-      /* Or whatever fixed width you prefer */
-      height: 190px;
-      /*overflow: auto;*/
-      /* Enables scrolling if content exceeds the container size */
-      position: relative;
-      /* For positioning the caption */
-    }
+  border: solid 5px beige;
+  border-radius: 3%;
+  width: 190px;
+  height: 190px;
+  position: relative;
+}
 
-    .header__wrapper .cols__container .right__col .photos .image-container img {
-      max-width: 100%;
-      display: block;
-      /* height: auto; */
-      object-fit: cover;
-    }
+.header__wrapper .cols__container .right__col .photos .image-container img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
 
     .header__wrapper .cols__container .right__col .photos .image-caption {
       position: static;
@@ -314,7 +312,9 @@ if ($_SESSION['username']) {
       opacity: 1;
       /* Show caption on hover */
     }
-
+    .bg-lightblue {
+    background-color:  #CCE2F0; /* This is a common light blue color */
+}
     @media (min-width: 868px) {
       .header__wrapper .cols__container {
         max-width: 1200px;
@@ -463,10 +463,10 @@ if ($_SESSION['username']) {
           <button>Follow</button>
         </nav>
 
-        <div class="photos">
+        <div class="photos bg-lightblue p-2">
           <?php foreach ($articles as $article) : ?>
-            <div class="image-container">
-              <img class="" src="<?= htmlspecialchars($article['img']); ?>" alt="Photo" />
+            <div class="image-container m-auto">
+              <img class="img-fluid" src="<?= htmlspecialchars($article['img']); ?>" alt="Photo" />
               <div class="image-caption"><?= htmlspecialchars($article['caption']); ?></div>
             </div>
           <?php endforeach; ?>

@@ -32,8 +32,8 @@ if ($results === false) {
 
                     <div class="col-auto justify-content-center g-5">
                         <?php foreach ($articles as $article) : ?>
-                            <div class="col-12 mb-1 p-2">
-                                <div class="card col shadow">
+                            <div class="col-12 col-xl-9 mb-4 m-auto">
+                                <div class="card col-9 col-lg-9 col-md-7 shadow mx-auto">
                                     <div class="col fs-5 pt-2 pb-2 ps-3 fw-bold bg-gradient bg-light rounded-top">
                                         <a href="article.php?id=<?= $article['id']; ?>" class="text-dark text-decoration-none">
                                             <?= htmlspecialchars($article['username']); ?>
@@ -55,7 +55,7 @@ if ($results === false) {
                                     </div>
                                     <div class="col">
                                         <div class="justify-content-center">
-                                            <img class="img-fluid rounded-bottom" src="<?= htmlspecialchars($article['img']); ?>" alt="" width="600" height="300" />
+                                            <img class="img-fluid  rounded-3" src="<?= htmlspecialchars($article['img']); ?>" alt="" width="600" height="300" />
                                         </div>
                                     </div>
                                 </div>
