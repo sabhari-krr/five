@@ -191,7 +191,7 @@ if ($_SESSION['username']) {
                     <div class="row2">
 
                         <div class="btn  bbb">
-                            <button type="button" class="btn btn-success">Home</button>
+                            <a class="btn btn-success" href="front.php">Home</a>
                         </div>
                         <form action="includes/deleteuser.php" method="POST" name="delete">
                             <div class="btn  bbb">

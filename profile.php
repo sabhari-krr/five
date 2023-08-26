@@ -4,7 +4,8 @@
 <?php
 
 include_once "includes/config.php";
-$_SESSION['username'] = 'narutouzumaki';
+session_start();
+// $_SESSION['username'] = 'narutouzumaki';
 if ($_SESSION['username']) {
   $usercnfrm = $_SESSION['username'];
   $sql = "SELECT * from users where username='$usercnfrm';";

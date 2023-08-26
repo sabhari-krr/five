@@ -1,5 +1,5 @@
 <?php
-include "includes/config.php";
+include_once "includes/config.php";
 if (isset($_POST["submit"])) {//Check if image was uploaded and form method is post
     //img part
 	$s=$_POST['username'];
