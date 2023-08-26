@@ -97,7 +97,7 @@ if ($results === false) {
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="image" class="form-label">
-                                                    Post Picture
+                                                        Post Picture
                                                     </label>
                                                     <input type="file" name="img" accept="image/*" required class="form-control">
                                                 </div>

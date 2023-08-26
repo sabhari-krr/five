@@ -7,7 +7,7 @@ session_start(); //comfiguration files
 
 include_once "includes/config.php";
 //pass that username in session
-$_SESSION['username'] = 'narutouzumaki';
+$_SESSION['username'] = 'lol';
 if ($_SESSION['username']) {
     $username = $_SESSION['username']; // Replace with the actual username(dynamic variable ah podanum)
 }
