@@ -409,7 +409,7 @@ if ($_SESSION['username']) {
           </p>
           <br>
           <br>
-            <a href="https://www.github.com" class="btn btn-primary">Edit</a>
+            <a href="updateprofile.php" class="btn btn-primary">Edit</a>
 
             <button type="button" class="btn btn-primary btn-outline-light border-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
               +
