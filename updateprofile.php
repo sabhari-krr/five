@@ -166,7 +166,7 @@ overflow-y: auto;
                 </div>
                 <div class="col">
                     <div class="row3">
-                        <form action="update.php" method="POST" name="submit">
+                        <form action="backupupdate.php" method="POST" name="submit">
                             <div class="form-floating mb-3">
                                 <input type="text" class="form-control" id="floatingInput" name="name" placeholder="NAME">
                                 <label for="floatingInput">NAME</label>
