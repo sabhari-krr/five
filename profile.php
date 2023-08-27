@@ -282,20 +282,20 @@ if ($_SESSION['username']) {
     }
 
     .header__wrapper .cols__container .right__col .photos .image-container {
-  
 
-  width: 190px;
-  height: 190px;
-  position: relative;
-}
 
-.header__wrapper .cols__container .right__col .photos .image-container img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-  border-radius: 3%;
-}
+      width: 190px;
+      height: 190px;
+      position: relative;
+    }
+
+    .header__wrapper .cols__container .right__col .photos .image-container img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      border-radius: 3%;
+    }
 
     .header__wrapper .cols__container .right__col .photos .image-caption {
       position: static;
@@ -315,9 +315,12 @@ if ($_SESSION['username']) {
       opacity: 1;
       /* Show caption on hover */
     }
+
     .bg-lightblue {
-    background-color:  #CCE2F0; /* This is a common light blue color */
-}
+      background-color: #CCE2F0;
+      /* This is a common light blue color */
+    }
+
     @media (min-width: 868px) {
       .header__wrapper .cols__container {
         max-width: 1200px;
@@ -375,7 +378,7 @@ if ($_SESSION['username']) {
             </button>
           </form>
         </div>
-
+        <div><a name="logout" id="logout" class="btn btn-danger" href="includes/logout.php" role="button">Logout</a></div>
       </div>
 
     </nav>
@@ -410,41 +413,41 @@ if ($_SESSION['username']) {
           </p>
           <br>
           <br>
-            <a href="updateprofile.php" class="btn btn-primary">Edit</a>
+          <a href="updateprofile.php" class="btn btn-primary">Edit</a>
 
-            <button type="button" class="btn btn-primary btn-outline-light border-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-              +
-            </button>
-            <!-- Modal -->
-            <div class="modal fade modal-static" id="staticBackdrop" data-bs-backdrop="static" tabindex="-1">
-              <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">New Post</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <form action="#" method="POST" enctype="multipart/form-data" name="contentx">
-                      <div class="mb-3">
-                        <label for="caption" class="form-label">Post Caption</label>
-                        <input type="text" name="caption" class="form-control" placeholder="Write your caption here......">
-                      </div>
-                      <div class="mb-3">
-                        <label for="image" class="form-label">
-                          Post Picture
-                        </label>
-                        <input type="file" name="img" accept="image/*" required class="form-control">
-                      </div>
-                      <div class="modal-footer">
-                        <button type="submit" name="contentx" class="btn btn-primary">Post</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      </div>
-                    </form>
+          <button type="button" class="btn btn-primary btn-outline-light border-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            +
+          </button>
+          <!-- Modal -->
+          <div class="modal fade modal-static" id="staticBackdrop" data-bs-backdrop="static" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">New Post</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form action="#" method="POST" enctype="multipart/form-data" name="contentx">
+                    <div class="mb-3">
+                      <label for="caption" class="form-label">Post Caption</label>
+                      <input type="text" name="caption" class="form-control" placeholder="Write your caption here......">
+                    </div>
+                    <div class="mb-3">
+                      <label for="image" class="form-label">
+                        Post Picture
+                      </label>
+                      <input type="file" name="img" accept="image/*" required class="form-control">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="submit" name="contentx" class="btn btn-primary">Post</button>
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                  </form>
 
-                  </div>
                 </div>
               </div>
             </div>
+          </div>
           <ul>
             <li><i class="fab fa-twitter"></i></li>
             <i class="fab fa-pinterest"></i>

@@ -23,7 +23,7 @@ if ($results === false) {
     <div class="container-fluid">
         <div class="row">
 
-            <div class="waste d-block d-sm-none" style="height: 54px;">adsasdasd</div>
+            <div class="waste d-block d-sm-none" style="height: 54px;">waste block</div>
             <div class="col justify-content-center">
                 <!-- feed -->
                 <div class="row bg-light justify-content-center">
