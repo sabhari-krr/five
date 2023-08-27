@@ -116,7 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="col">
 
                 <h3 style="color: dodgerblue; text-align: center;">Connect and share</h3>
-                <img src="img/Mobile login.gif" alt="" class="img-fluid">
+                <img src="img/login.gif" alt="" class="img-fluid">
 
             </div>
 
