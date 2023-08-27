@@ -55,7 +55,7 @@ if (isset($_POST["submit"])) {//Check if image was uploaded and form method is p
            <div class="card">
                 <div class="card-body">
                   <h3 class="fw-bolder">REGISTER HERE !</h3>
-                  <p class="fw-lighter fs-6">Have an account, <span id="signIn" role="button" class="text-primary">Sign In</span></p>
+                  <p class="fw-lighter fs-6">Have an account, <a href="userlogin.php" class="link-underline-primary">Sign in</a></p>
                   <!-- form register section -->
                     <div class="col-auto mb-2">
                         <label class="visually-hidden" for="autoSizingInput">Name</label>
