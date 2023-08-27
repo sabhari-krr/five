@@ -88,8 +88,11 @@ if (isset($_POST["content"])) {
                         </button>
                     </form>
                 </div>
-                <div class="col-auto d-lg-none">
-                    <button class="navbar-toggler profile-button rounded-circle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" style="padding: 0 0px;">
+                <div class="col-auto ">
+
+                    <a name="logout" id="logout" class="btn btn-danger" href="includes/logout.php" role="button">Logout</a>
+                    
+                    <button class="navbar-toggler profile-button rounded-circle d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" style="padding: 0 0px;">
                         <img class="img-fluid  rounded-circle" src="<?= $imagePath; ?>" alt="Circular Image" width="40" />
                         <!-- <i class="bi bi-person-circle" style="font-size: 2rem;"></i> Profile Icon -->
                     </button>

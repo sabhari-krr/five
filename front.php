@@ -55,7 +55,7 @@ if ($results === false) {
                                     </div>
                                     <div class="col">
                                         <div class="justify-content-center">
-                                            <img class="img-fluid  rounded-3" src="<?= htmlspecialchars($article['img']); ?>" alt="" width="600" height="300" />
+                                            <img class="img-fluid  rounded-bottom" src="<?= htmlspecialchars($article['img']); ?>" alt="" width="600" height="300" />
                                         </div>
                                     </div>
                                 </div>
