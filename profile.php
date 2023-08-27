@@ -24,13 +24,16 @@ if ($_SESSION['username']) {
 
 
   //selecting all the posts according to newwest 
-
   $sql2 = "SELECT *
         FROM content WHERE username='$usercnfrm'
         ORDER BY postedat DESC;";
-
   $results = mysqli_query($db, $sql2);
 
+//Getting post count
+  $sql3 = "SELECT count('$usercnfrm') 
+          FROM content WHERE username='$usercnfrm'";
+  $count = mysqli_query($db,$sql3);
+  
   if ($results === false) {
     echo mysqli_error($db);
   } else {
@@ -468,12 +471,18 @@ if ($_SESSION['username']) {
         </nav>
 
         <div class="photos bg-lightblue p-2">
-          <?php foreach ($articles as $article) : ?>
+        <?php if ($articles){
+           foreach ($articles as $article) : 
+            ?>
+            
             <div class="image-container m-auto">
               <img class="img-fluid" src="<?= htmlspecialchars($article['img']); ?>" alt="Photo" />
               <div class="image-caption"><?= htmlspecialchars($article['caption']); ?></div>
             </div>
-          <?php endforeach; ?>
+          <?php endforeach;}
+          else{
+            echo "<b>No posts to show</b> ";
+          } ?>
         </div>
       </div>
     </div>
