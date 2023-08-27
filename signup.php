@@ -23,7 +23,7 @@ if (isset($_POST["submit"])) {//Check if image was uploaded and form method is p
 	if ($check == 0) {//check for existing user
         move_uploaded_file($file_tmp,"images/profile/".$file_name);
 		mysqli_query($db, $query);
-		echo "<script>alert('Registration Successful');window.location.href='front.php';</script>";
+		echo "<script>alert('Registration Successful');window.location.href='userlogin.php';</script>";
 	} else {
 		echo "<script>alert('Already Registered');window.location.href='userlogin.php';</script>";
 	}
